@@ -69,4 +69,5 @@ with gr.Blocks() as app:
         test_summary = gr.HTML()
         test_button.click(fn=handle_test_pdf, inputs=[test_pdf], outputs=[test_output, test_summary])
 
-app.launch(inline=False, inbrowser=True, max_threads=5)
+app.launch(inline=False, max_threads=5)
+
