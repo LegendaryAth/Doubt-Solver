@@ -22,7 +22,7 @@ def handle_test_pdf(file_path):
     detailed, one_liner = evaluate_test_pdf(file_path)
     return detailed, f"<div class='one-liner-box'>{one_liner}</div>"
 
-with open("Doubt-Solver/styleapp.css", "r") as css_file:
+with open("styleapp.css", "r") as css_file:
     custom_css = css_file.read()
 
 with gr.Blocks() as app:
@@ -70,4 +70,5 @@ with gr.Blocks() as app:
         test_button.click(fn=handle_test_pdf, inputs=[test_pdf], outputs=[test_output, test_summary])
 
 app.launch(inline=False, max_threads=5)
+
 
