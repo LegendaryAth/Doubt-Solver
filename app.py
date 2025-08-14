@@ -34,7 +34,7 @@ with gr.Blocks() as app:
     gr.Markdown("""
         # 📚 CurricuLens Academic Hub
         <div class="subtitle">
-        Made with <span style="color: #ff4d4d;">❤️</span> by Arav
+        Made with <span style="color: #ff4d4d;">❤️</span> by Atharva
         </div>
         """, elem_id="main-title")
 
