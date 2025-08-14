@@ -1,4 +1,5 @@
 import gradio as gr
+import os
 from core.gemini_vision import (
     process_math_image,
     process_science_input,
@@ -22,7 +23,7 @@ def handle_test_pdf(file_path):
     detailed, one_liner = evaluate_test_pdf(file_path)
     return detailed, f"<div class='one-liner-box'>{one_liner}</div>"
 
-with open("Doubt-Solver/styleapp.css", "r") as css_file:
+with open("styleapp.css", "r") as css_file:
     custom_css = css_file.read()
 
 with gr.Blocks() as app:
@@ -69,5 +70,10 @@ with gr.Blocks() as app:
         test_summary = gr.HTML()
         test_button.click(fn=handle_test_pdf, inputs=[test_pdf], outputs=[test_output, test_summary])
 
-app.launch(inline=False, max_threads=5)
+app.launch(inline=False, max_threads=5, server_name="0.0.0.0", server_port=int(os.environ.get('PORT', 7860)))
+
+
+
+
+
 
